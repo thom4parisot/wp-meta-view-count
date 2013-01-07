@@ -1,12 +1,12 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: oncletom
- * Date: 06/01/13
- * Time: 11:37
- * To change this template use File | Settings | File Templates.
- */
+
 class MetaViewCountSetup {
+    /**
+     * Adds the script in any page we want to monitor visits
+     *
+     * @todo uses wp_footer and async/defer attributes
+     * @static
+     */
     public static function Wp(){
         if (!is_single() && !is_page()){
             return;
@@ -19,6 +19,15 @@ class MetaViewCountSetup {
         wp_enqueue_script('meta-view-count-handler', admin_url('admin-ajax.php?action=update_view_count&amp;post_id='.get_the_ID()), array(), '1.0.0', true);
     }
 
+    /**
+     * Handles URI call to increment a view count
+     *
+     * @todo deal with nonce to avoids plain call of the URI
+     * @static
+     * @wordpress:hook  wp_ajax_nopriv_update_view_count
+     * @wordpress:hook  wp_ajax_update_view_count
+     * @throws Exception
+     */
     public static function AjaxHandler(){
         $post = get_post($_REQUEST['post_id']);
 
