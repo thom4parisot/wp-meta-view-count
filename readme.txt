@@ -5,6 +5,7 @@ Tags: post, page, count, view count, stats, popularity, cache
 Requires at least: 3.4
 Tested up to: 3.4
 Stable tag: trunk
+License: GPLv3
 
 Fast and easy way to count post and page views. Especially with WordPress cache enabled.
 
