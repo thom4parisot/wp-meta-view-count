@@ -14,6 +14,7 @@ Plugin URI: http://wordpress.org/extend/plugins/meta-view-count/
 require dirname(__FILE__) . '/lib/Object.php';
 require dirname(__FILE__) . '/lib/Receiver.php';
 require dirname(__FILE__) . '/lib/Setup.php';
+require dirname(__FILE__) . '/lib/helpers.php';
 
 add_action('wp_ajax_update_view_count', array('MetaViewCountSetup', 'AjaxHandler'));
 add_action('wp_ajax_nopriv_update_view_count', array('MetaViewCountSetup', 'AjaxHandler'));
