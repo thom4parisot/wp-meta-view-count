@@ -45,9 +45,7 @@ class MetaViewCountSetup {
         header("Max-Age: $seconds_to_cache");
         header("Cache-Control: s-max-age: 1800, max-age: $seconds_to_cache");
 
-        status_header(200);
-        echo json_encode(array());
-
+        status_header(204);
         exit;
     }
 }
