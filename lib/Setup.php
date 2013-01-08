@@ -35,26 +35,12 @@ class MetaViewCountSetup {
             throw new Exception('Invalid Post');
         }
 
-        if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) || isset($_SERVER['HTTP_IF_MODIFIED'])  || isset($_SERVER['HTTP_IF_NONE_MATCH'])){
-            status_header(304);
-            exit;
+        $receiver = new MetaViewCountReceiver($post);
+
+        if ($receiver->incrementPost()){
+            $receiver->sendCacheHeaders();
         }
 
-        $receiver = new MetaViewCountReceiver($post);
-        $receiver->incrementPost();
-
-        $seconds_to_cache = 864000;
-        $expires = gmdate('D, d M Y H:i:s', time() + $seconds_to_cache) . ' GMT';
-        $lastmodified = gmdate('D, d M Y H:i:s', time()) . ' GMT';
-
-        header("Content-Type: application/json");
-        header("Date: $lastmodified");
-        header("Expires: $expires");
-        header("Pragma: public");
-        header("Max-Age: $seconds_to_cache");
-        header("Cache-Control: s-max-age: 1800, max-age: $seconds_to_cache");
-
-        status_header(204);
         exit;
     }
 }
