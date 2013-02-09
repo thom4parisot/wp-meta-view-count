@@ -8,7 +8,7 @@ require dirname(__FILE__) . '/strategies/Column.php';
  */
 class MetaViewCountObject {
     /**
-     * @var StdClass WordPress Post/Page object
+     * @var WP_Post WordPress Post/Page object
      */
     protected $object;
 
@@ -22,9 +22,9 @@ class MetaViewCountObject {
     /**
      * Initialize the business logic
      *
-     * @param StdClass $object Post/Page WordPress object
+     * @param WP_Post $object Post/Page WordPress object
      */
-    public function __construct(StdClass $object){
+    public function __construct(WP_Post $object){
         $this->object = $object;
 
         $this->storage = new ColumnStorage();
