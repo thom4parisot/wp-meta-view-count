@@ -2,8 +2,8 @@
 Contributors: oncletom
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=752034
 Tags: post, page, count, view count, stats, popularity, cache
-Requires at least: 3.4
-Tested up to: 3.4
+Requires at least: 3.5
+Tested up to: 3.5
 Stable tag: trunk
 License: GPLv3
 
@@ -42,6 +42,10 @@ This is still an alpha release. I don't recommend using it yet.
  1. Activate it through your WordPress plugins administration page
 
 == Changelog ==
+
+= Version 1.1.0 =
+
+* Requiring at least WordPress 3.5
 
 = Version 1.0.0 =
 
