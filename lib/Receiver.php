@@ -13,9 +13,9 @@ class MetaViewCountReceiver {
     /**
      * Basic initialization
      *
-     * @param StdClass $post
+     * @param WP_Post $post
      */
-    public function __construct(StdClass $post){
+    public function __construct(WP_Post $post){
         $this->object = new MetaViewCountObject($post);
     }
 
